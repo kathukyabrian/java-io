@@ -9,6 +9,12 @@ public class NumberFilterInputStream extends FilterInputStream {
 
     @Override
     public int read() throws IOException {
-        return super.read();
+        int b = super.read();
+
+        if (b >= 48 && b <= 57) {
+            return b;
+        } else {
+            return 63;
+        }
     }
 }
